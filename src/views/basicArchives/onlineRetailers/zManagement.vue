@@ -40,11 +40,18 @@
               </el-select>
             </el-form-item>
             <el-form-item>
-              上传下载
+              <div class="updatedArea">
+                <el-upload
+                  :file-list="fileList"
+                  class="upload-demo">
+                  <span>Drop excel file here or</span>
+                  <el-button size="small" type="primary">browse</el-button>
+                </el-upload>
+              </div>
             </el-form-item>
           </el-form>
         </el-row>
-        <el-row></el-row>
+        <el-row/>
       </el-col>
     </el-row>
   </div>
@@ -79,7 +86,8 @@ export default {
       partitionForm: {
         programme: '',
         type: ''
-      }
+      },
+      fileList: []
     }
   }
 }
@@ -89,6 +97,13 @@ export default {
   text-align:center!important;
 }
 #zManagement{
+}
+.updatedArea{
+  width:400px;
+  height:100px;
+  border:3px dashed gray;
+  padding:30px 25px;
+  font-size:24px;
 }
 </style>
 <style lang="scss">

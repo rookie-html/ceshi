@@ -56,7 +56,7 @@
                     <el-button-group>
                       <el-button type="primary" size="mini" @click="showDialog('add')">添加</el-button>
                       <el-button type="primary" size="mini" @click="showDialog('edit')">编辑</el-button>
-                      <el-button type="danger" size="mini" @click="doDeleteTableDate">{{$t('route.basicArchive.acRate')}}</el-button>
+                      <el-button type="danger" size="mini" @click="doDeleteTableDate">删除</el-button>
                     </el-button-group>
                   </el-col>
                 </el-row>
