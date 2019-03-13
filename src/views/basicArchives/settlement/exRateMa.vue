@@ -47,15 +47,15 @@
           layout="total, sizes, prev, pager, next, jumper"/>
       </el-footer>
     </el-container>
-    <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="50%" center show-close @closed="resetForm">
+    <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="80%" center show-close @closed="resetForm">
       <el-form ref="dialog" :model="dialogForm" label-width="120px">
         <el-row>
-          <el-col :span="12">
+          <el-col :span="10">
             <el-form-item label="货币别" prop="currencyClass">
               <el-input v-model="dialogForm.currencyClass" autocomplete="off"/>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="10" :offset="4">
             <el-form-item label="兑换币别" prop="cOfCC">
               <el-input v-model="dialogForm.cOfCC" autocomplete="off"/>
             </el-form-item>
@@ -69,14 +69,14 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="汇率" prop="exRate">
-              <el-input v-model="dialogForm.exRate" autocomplete="off"/>
+              <el-input v-model="dialogForm.exRate" type="number" maxlength="16"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
             <el-form-item label="做账汇率" prop="acRate">
-              <el-input v-model="dialogForm.acRate" autocomplete="off"/>
+              <el-input v-model="dialogForm.acRate" type="number" maxlength="16"/>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -200,7 +200,7 @@ export default {
       return this.tableData.filter((valueOb) => {
         var findWhether = false
         Object.keys(valueOb).forEach(valueKey => {
-          if (new RegExp(this.queryCriteria).test(valueOb[valueKey])) {
+          if (new RegExp(this.queryCriteria, 'gi').test(valueOb[valueKey])) {
             findWhether = true
           }
         })
